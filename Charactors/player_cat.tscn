@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dha1f266gk3f4"]
+
+[ext_resource type="Texture2D" uid="uid://de4iic300cdnv" path="res://Art/Sprout Lands - Sprites - Basic pack/Characters/Basic Charakter Spritesheet.png" id="1_7evho"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7evho"]
+size = Vector2(10, 6)
+
+[node name="PlayerCat" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_7evho")
+hframes = 4
+vframes = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_7evho")
