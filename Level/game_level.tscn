@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://cv1mv1iyxgwf2"]
+[gd_scene load_steps=3 format=3 uid="uid://cv1mv1iyxgwf2"]
 
 [ext_resource type="PackedScene" uid="uid://dha1f266gk3f4" path="res://Charactors/player_cat.tscn" id="1_xwc32"]
+[ext_resource type="Script" uid="uid://dbk2e867ojufg" path="res://Charactors/player_cat.gd" id="2_lla2u"]
 
 [node name="GameLevel" type="Node2D"]
 
 [node name="PlayerCat" parent="." instance=ExtResource("1_xwc32")]
 position = Vector2(41, 13)
+script = ExtResource("2_lla2u")
