@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://cv1mv1iyxgwf2"]
+[gd_scene load_steps=19 format=4 uid="uid://cv1mv1iyxgwf2"]
 
 [ext_resource type="PackedScene" uid="uid://dha1f266gk3f4" path="res://Charactors/player_cat.tscn" id="1_xwc32"]
 [ext_resource type="Script" uid="uid://dbk2e867ojufg" path="res://Charactors/player_cat.gd" id="2_lla2u"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bvvgfe0bik6ym" path="res://Art/Sprout Lands - Sprites - Basic pack/Tilesets/Fences.png" id="7_nxv23"]
 [ext_resource type="Texture2D" uid="uid://cfn56o6j0tokf" path="res://Art/Sprout Lands - Sprites - Basic pack/Tilesets/Wooden_House_Roof_Tilset.png" id="8_lpykj"]
 [ext_resource type="Texture2D" uid="uid://dj4anw4u3of57" path="res://Art/Sprout Lands - Sprites - Basic pack/Tilesets/Wooden_House_Walls_Tilset.png" id="9_aqdfn"]
+[ext_resource type="PackedScene" uid="uid://bl502ig4xkasq" path="res://Charactors/Chicken.tscn" id="10_def61"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hir8n"]
 texture = ExtResource("3_nwuuu")
@@ -351,6 +352,12 @@ use_parent_material = true
 tile_map_data = PackedByteArray("AAD/////AQAAAAAAAAD//wAAAQAAAAEAAAD//wEAAQAAAAIAAAAAAP//AQABAAAAAAAAAAEAAQABAAIAAAABAP//AQABAAAAAAABAAEAAQABAAIAAAABAAAAAQABAAEAAAAAAAAAAQABAAEAAAACAP//AQABAAAAAAACAAAAAQABAAEAAAACAAEAAQABAAIAAAADAP//AQABAAAAAAADAAAAAQABAAEAAAADAAEAAQABAAIAAAAEAP//AQABAAAAAAAEAAAAAQAJAAQAAAAEAAEAAQAJAAUAAAAFAP//AQABAAAAAAAFAAAAAQAKAAQAAAAFAAEAAQAKAAUAAAAGAP//AQACAAAAAAAGAAAAAQACAAEAAAAGAAEAAQACAAIAAAAEAAIAAQAJAAYAAAAFAAIAAQAKAAYAAAA=")
 tile_set = SubResource("TileSet_ttogt")
 use_kinematic_bodies = true
+
+[node name="Chicken" parent="TileMap" instance=ExtResource("10_def61")]
+position = Vector2(-72, 69)
+
+[node name="Chicken2" parent="TileMap" instance=ExtResource("10_def61")]
+position = Vector2(170, 69)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(41, 13)

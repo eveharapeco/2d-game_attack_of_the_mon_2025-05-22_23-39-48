@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://bl502ig4xkasq"]
+
+[ext_resource type="Script" uid="uid://cc3w86llm3yec" path="res://Charactors/chicken.gd" id="1_iwyr6"]
+[ext_resource type="Texture2D" uid="uid://d3h017tw0v6c5" path="res://Art/Sprout Lands - Sprites - Basic pack/Characters/Free Chicken Sprites.png" id="1_xgm87"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xgm87"]
+size = Vector2(11, 5)
+
+[node name="Chicken" type="Node2D"]
+
+[node name="Chicken" type="CharacterBody2D" parent="."]
+script = ExtResource("1_iwyr6")
+
+[node name="Sprite2D" type="Sprite2D" parent="Chicken"]
+texture = ExtResource("1_xgm87")
+hframes = 4
+vframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Chicken"]
+
+[node name="AnimationTree" type="AnimationTree" parent="Chicken"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chicken"]
+position = Vector2(-1.5, 3.5)
+shape = SubResource("RectangleShape2D_xgm87")
