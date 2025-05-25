@@ -1,7 +1,148 @@
-[gd_scene load_steps=4 format=3 uid="uid://bl502ig4xkasq"]
+[gd_scene load_steps=24 format=3 uid="uid://bl502ig4xkasq"]
 
 [ext_resource type="Script" uid="uid://cc3w86llm3yec" path="res://Charactors/chicken.gd" id="1_iwyr6"]
 [ext_resource type="Texture2D" uid="uid://d3h017tw0v6c5" path="res://Art/Sprout Lands - Sprites - Basic pack/Characters/Free Chicken Sprites.png" id="1_xgm87"]
+
+[sub_resource type="Animation" id="Animation_iwyr6"]
+resource_name = "walk_right"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_odehm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+
+[sub_resource type="Animation" id="Animation_gblm8"]
+resource_name = "walk_left"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [5, 6]
+}
+
+[sub_resource type="Animation" id="Animation_i7wkb"]
+resource_name = "idle"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gblm8"]
+_data = {
+&"RESET": SubResource("Animation_odehm"),
+&"idle": SubResource("Animation_i7wkb"),
+&"walk_left": SubResource("Animation_gblm8"),
+&"walk_right": SubResource("Animation_iwyr6")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_iwyr6"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_i7wkb"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_r4x34"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6j463"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_pqf1i"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_r4x34"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_iwyr6")
+blend_point_0/pos = Vector2(0, 0)
+blend_point_1/node = SubResource("AnimationNodeAnimation_i7wkb")
+blend_point_1/pos = Vector2(-1, 0)
+blend_point_2/node = SubResource("AnimationNodeAnimation_r4x34")
+blend_point_2/pos = Vector2(0, 1.1)
+blend_point_3/node = SubResource("AnimationNodeAnimation_6j463")
+blend_point_3/pos = Vector2(0, -1.1)
+blend_point_4/node = SubResource("AnimationNodeAnimation_pqf1i")
+blend_point_4/pos = Vector2(1, 0)
+min_space = Vector2(-1, -1.1)
+max_space = Vector2(1, 1.1)
+blend_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_odehm"]
+animation = &"walk_left"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gblm8"]
+animation = &"walk_right"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_e6e3g"]
+animation = &"walk_left"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jh83q"]
+animation = &"walk_right"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_6j463"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_odehm")
+blend_point_0/pos = Vector2(-1, 0)
+blend_point_1/node = SubResource("AnimationNodeAnimation_gblm8")
+blend_point_1/pos = Vector2(1, 0)
+blend_point_2/node = SubResource("AnimationNodeAnimation_e6e3g")
+blend_point_2/pos = Vector2(0, 1)
+blend_point_3/node = SubResource("AnimationNodeAnimation_jh83q")
+blend_point_3/pos = Vector2(0, -1)
+blend_mode = 1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_pqf1i"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_e6e3g"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jh83q"]
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_syp8f"]
+states/Start/position = Vector2(173, 100)
+states/idle/node = SubResource("AnimationNodeBlendSpace2D_r4x34")
+states/idle/position = Vector2(350, 100)
+"states/walk /node" = SubResource("AnimationNodeBlendSpace2D_6j463")
+"states/walk /position" = Vector2(596, 100)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_pqf1i"), "idle", "walk ", SubResource("AnimationNodeStateMachineTransition_e6e3g"), "walk ", "idle", SubResource("AnimationNodeStateMachineTransition_jh83q")]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xgm87"]
 size = Vector2(11, 5)
@@ -15,11 +156,23 @@ script = ExtResource("1_iwyr6")
 texture = ExtResource("1_xgm87")
 hframes = 4
 vframes = 2
+frame = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Chicken"]
+libraries = {
+&"": SubResource("AnimationLibrary_gblm8")
+}
 
 [node name="AnimationTree" type="AnimationTree" parent="Chicken"]
+tree_root = SubResource("AnimationNodeStateMachine_syp8f")
+anim_player = NodePath("../AnimationPlayer")
+parameters/idle/blend_position = Vector2(0, 0)
+"parameters/walk /blend_position" = Vector2(0, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Chicken"]
 position = Vector2(-1.5, 3.5)
 shape = SubResource("RectangleShape2D_xgm87")
+
+[node name="Timer" type="Timer" parent="Chicken"]
+
+[connection signal="timeout" from="Chicken/Timer" to="Chicken" method="_on_timer_timeout"]
