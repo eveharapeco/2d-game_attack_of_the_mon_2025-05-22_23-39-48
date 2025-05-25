@@ -28,7 +28,7 @@ func select_new_direction():
 		randi_range(-1,1),
 		randi_range(-1,1)
 	)
-
+#😘
 func pick_new_state():
 	if(current_state == CHICKEN_STATE.IDLE):
 		state_machine.travel("walk")
