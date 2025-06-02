@@ -15,12 +15,12 @@ var move_direction : Vector2 = Vector2.ZERO
 var current_state : CHICKEN_STATE = CHICKEN_STATE.IDLE
 
 func _ready():
-    select_new_direction()
+	select_new_direction()
 
 func _physics_process(_delta):
-    velocity = move_direction * move_speed
-    
-    move_and_slide()
+	velocity = move_direction * move_speed
+	
+	move_and_slide()
 
 
 func select_new_direction():
@@ -34,19 +34,28 @@ func select_new_direction():
     elif (move_direction.x > 0):
         sprite.flip_h = false
         
+	move_direction = Vector2(
+		randi_range(-1,1),
+		randi_range(-1,1)
+	)
+	
+	if (move_direction.x < 0):
+		sprite.flip_h = true
+	elif (move_direction.x > 0):
+		sprite.flip_h = false
 #😘
 func pick_new_state():
-    if(current_state == CHICKEN_STATE.IDLE):
-        state_machine.travel("walk_right")
-       # state_machine.travel("walk")
-        current_state = CHICKEN_STATE.WALK
-        timer.start(walk_time)
-        select_new_direction()
-    elif (current_state == CHICKEN_STATE.WALK):
-        state_machine.travel("Idle")
-        current_state = CHICKEN_STATE.IDLE
-        timer.start(idle_time)
+	if(current_state == CHICKEN_STATE.IDLE):
+		state_machine.travel("walk_right")
+	   # state_machine.travel("walk")
+		current_state = CHICKEN_STATE.WALK
+		timer.start(walk_time)
+		select_new_direction()
+	elif (current_state == CHICKEN_STATE.WALK):
+		state_machine.travel("idle")
+		current_state = CHICKEN_STATE.IDLE
+		timer.start(idle_time)
 
 
 func _on_timer_timeout() -> void:
-    pick_new_state() # Replace with function body.
+	pick_new_state() # Replace with function body.
