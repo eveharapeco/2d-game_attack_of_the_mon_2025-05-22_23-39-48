@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://dj4anw4u3of57" path="res://Art/Sprout Lands - Sprites - Basic pack/Tilesets/Wooden_House_Walls_Tilset.png" id="9_aqdfn"]
 [ext_resource type="PackedScene" uid="uid://bl502ig4xkasq" path="res://Charactors/Chicken.tscn" id="10_def61"]
 [ext_resource type="Texture2D" uid="uid://5qh1osqpieh8" path="res://Art/Sprout Lands - Sprites - Basic pack/Objects/Basic_Grass_Biom_things.png" id="10_x8oqm"]
-[ext_resource type="PackedScene" uid="uid://bq1eligfcob71" path="res://main_menu.tscn" id="12_qd5bx"]
+[ext_resource type="PackedScene" uid="uid://dr5lgaw7qdaer" path="res://paused_menu_2.tscn" id="12_qd5bx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hir8n"]
 texture = ExtResource("3_nwuuu")
@@ -419,11 +419,9 @@ position = Vector2(-72, 69)
 [node name="Chicken2" parent="TileMap" instance=ExtResource("10_def61")]
 position = Vector2(170, 69)
 
-[node name="MainMenu" parent="TileMap" instance=ExtResource("12_qd5bx")]
-offset_left = -2050.0
-offset_top = 85.0
-offset_right = -2050.0
-offset_bottom = 85.0
-
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(41, 13)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PausedMenu2" parent="CanvasLayer" instance=ExtResource("12_qd5bx")]
