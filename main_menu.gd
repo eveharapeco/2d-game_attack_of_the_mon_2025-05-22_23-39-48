@@ -1,18 +1,18 @@
 extends Control
 
 func _ready():
-	pass
+    pass
 
 func _process(delta):
-	pass
+    pass
 
 func _on_start_pressed() -> void:
-	get_tree().change_scene_to_file("res://Level/game_level.tscn")
+    get_tree().change_scene_to_file("res://Level/game_level.tscn")
 
 
 func _on_options_pressed() -> void:
-	print()
+    print()
 
 
 func _on_exit_pressed() -> void:
-	get_tree().quit()
+    get_tree().quit()
